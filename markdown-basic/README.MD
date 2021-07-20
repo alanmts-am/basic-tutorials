@@ -1,4 +1,4 @@
-# Markdwon, linguagem de marcação
+# Markdown
 ##  O que é Markdown?
 
 É uma linguagem de marcação textual (markup) muito usada no mundo da programação. Ela é leve, de simples formatação usando caracteres básicos. Feita para que sua conversão ao HTML seja extremamente fácil. Basicamente um simples formato de texto como .txt, apenas com o tipo .md.
