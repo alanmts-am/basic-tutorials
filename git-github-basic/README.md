@@ -6,62 +6,62 @@ Inicio do README
 
 ## 1 - PROJETOS INICIADOS NA MAQUINA
 * Se faz necessário a criação do repositório no git do projeto. Os casos de repositórios clonados, o git já é iniciado automaticamente  
-```java
+```bash
 git init (este apenas cria o git localmente)
 ```
 <!----->
 * Será necessária a inserção de usuário e email ao git antes de dar commit, push ou pull
-```java
+```bash
 git config user.name "user do github"
 git config user.email "email do github"
 ```
 <span style="color:orange">Exemplo</span>
 
-```Java
+```bash
 git config user.name usuario
 git config user.email exemplo@gmail.com
 ```
 <!----->
 * Para ver o status atual do projeto
-```Java
+```bash
 git status
 ```
 <!----->
 * Qualquer mudança feita no projeto precisa ser adicionada ao commit, por arquivo ou todos
-```Java
+```bash
 git add "nome do arquivo"
 ```
-```Java
+```bash
 git add . (todos)
 ```
 <span style="color:orange">Exemplo</span>
 
-```Java
+```bash
 git add readme.md
 ```
 <!----->
 * Para subir as mudanças em commit
-```Java
+```bash
 git commit -m "mensagem do commit"
 ```
 <span style="color:orange">Exemplo</span>
 
-```Java
+```bash
 git commit -m "Adição do readme.md"
 ```
 <!----->
 * Para verificar todos os commits
-```Java
+```bash
 git log
 ```
 <!----->
 * Verificar as branchs atuais do sistema
-```Java
+```bash
 git branch
 ```
 <!----->
 * Para criar uma nova branch
-```Java
+```bash
 git branch "nome da branch"
 ```
 <span style="color:red">OBS</span>: 
@@ -69,35 +69,35 @@ uma nova branch só pode ser criada após a inserção do primeiro commit
 <!----->
 * Fazer a troca de branch
 
-```Java
+```bash
 git checkout alteracao (sai da branch atual e vai para a alteração)
 ```
 <!----->
 * Verificar todas as configurações do git
-```Java
+```bash
 git config --list
 ```
 <!----->
 * Concatenação de comandos
-```Java
+```bash
 git status && git log
 		ou
 git status ; git log
 ```
 <!----->
 * Uso da configuração "alias" que basicamente cria prefixos para gerar comandos. Por exemplo, o alias "teste" para fazer o comando "git status"
-```Java
+```bash
 git config --global alias.teste "git status"
 ```
 Depois, invés de usar "git status" pode usar "git teste"
 <!----->
 * Para deletar um alias, use:
-```Java
+```bash
 git config --global --unset alias.teste
 ```
 <!----->
 * Reunindo os dois últimos conceitos, usando um alias para dois comandos
-```Java
+```bash
 git config --global alias.teste "!git status & git log"
 ```
 
@@ -109,19 +109,19 @@ Pode ser via [desktop](https://desktop.github.com/ ) ou [site](https://github.co
 ![Novo repositório](img/new-repository.png)
 <!----->
 * Agora precisa associar o seu projeto ao repositório antes de dar pull para o servidor.
-```Java
+```bash
 git remote add "URL do repositório" (HTTPS)
 git remote add "URL SSH" (SSH: chave precisar estar salva na sua conta github)
 ```
 <span style="color:orange">Exemplo</span>
 
-```Java
+```bash
 git remote git@github.com:usuario/repositorio.git (URL SSH)
 ```
 <span style="color:red">OBS</span>:
 você pode ainda dar um clone do repositório criado no github para uma pasta de sua maquina usando git clone
 
-```Java
+```bash
 git clone git@github.com:usuario/repositorio.git (URL SSH)
 ```
 <span style="color:red">OBS</span>:
@@ -129,47 +129,47 @@ o uso da opção SSH será explanada mais a frente (item 3)
 
 <!----->
 * Para verificar o link basta inserir:
-```Java
+```bash
 git remote -v
 ```
 <!----->
 * Será necessária a inserção de usuário e email ao git antes de dar commit, push ou pull, independente de ser HTTPS ou SSH
-```Java
+```bash
 git config user.name "user do github"
 git config user.email "email do github"
 ```
 <span style="color:orange">Exemplo</span>
 
-```Java
+```bash
 git config user.name usuario
 git config user.email exemplo@gmail.com
 ```
 Você pode estar informando os campos de forma global para o git de sua maquina, independente do projeto:
-```Java
+```bash
 git config --global user.name "user do github"
 git config --global user.email "email do github"
 ```
 <span style="color:orange">Exemplo</span>
 
-```Java
+```bash
 git config --global user.name usuario
 git config --global user.email exemplo@gmail.com
 ```
 <!----->
 * Para verificar estas configurações e outras, pode usar:
-```Java
+```bash
 git config --list
 ```
 
 ## 3 - GERAÇÃO E CONFIGURAÇÃO DE CHAVES SSH
 
 * Para funcionar via SSH, deve ser criada a chave da sua máquina para ser inserida no github:
-```Java
+```bash
 ssh-keygen -t rsa -b 4096 -C "exemplo@gmail.com"
 ```
 <!----->
 * A mesma deve ser gerada dentro da pasta: 
-```Java
+```bash
 "C:\\Users\\SEU_USUARIO\\.ssh" (Windows)
 "/home/SEU_USUARIO/.ssh" (Linux)
 ```
@@ -193,11 +193,11 @@ Para adicionar ao github, deve-se ir nas configurações > SSH and GPG keys > Ne
 Esta será a informação usada no campo "key" do github. O "title" pode ser o modelo do seu computador.
 <!----->
 * Para testar a validação, basta inserir no terminal:
-```Java
+```bash
 ssh -T "git@github.com"
 ```
 Um texto como este deve ser recebido como retorno:
-```Java
+```bash
 Hi user.name! You have successfully authenticated, but GitHub does not provide shell access.
 ```
 
@@ -210,7 +210,7 @@ Para isso, primeiro devemos criar o arquivo "config", caso ainda não exista, ut
 ![Abrir Git Bash](img/git-bash-here.png)
 
 * Abra um terminal bash dentro da pasta .ssh e insira o comando:
-```Java
+```bash
 touch config
 ```
 <!----->
@@ -219,7 +219,7 @@ touch config
 ![Editar arquivo config](img/edit-config-file.png)
 
 Os seguintes campos devem ser inseridos:
-```Java
+```bash
 Host github.ex
 	HostName github.com
 	User git
@@ -229,7 +229,7 @@ Host github.ex
 
 <span style="color:orange">Exemplo</span>
 
-```Java
+```bash
 Host github.ex
 	HostName github.com
 	User git
@@ -243,15 +243,15 @@ perceba que a chave tem o nome "id_github_exemplo". Isso porque no ato de geraç
 ![Novo nome chave SSH](img/ssh-key-name.png)
 <!----->
 * Depois disso, pode ser testada a validação com o comando já visto, contudo usando o prefixo proposto:
-```Java
+```bash
 ssh -T github.ex
 ```
 Um texto como este deve ser recebido como retorno:
-```Java
+```bash
 Hi user.name! You have successfully authenticated, but GitHub does not provide shell access.
 ```
 Com isso, é possível clonar seus projetos usando o prefixo determinado
-```Java
+```bash
 git clone github.ex:username/repository.git
 ```
 
@@ -267,36 +267,36 @@ Existe uma forma de criarmos mais de um arquivo .gitconfig e chama-lo a depender
 o arquivo normalmente se encontra na raiz da pasta do usuário. Ele é criado assim que algum comando de configuração é enviado.
 
 Linux
-```Java
+```bash
 nano .gitconfig-empresa ou vim .gitconfig-empresa
 ```
 Windows (bash do Git)
-```Java
+```bash
 touch .gitconfig-empresa 
 ```
 O arquivo funciona com um sistema de tags e variáveis. No exemplo abaixo, temos um com a tag user e suas variáveis name e email
-```Java
+```bash
 [user]
 	name = teste
 	email = teste@email.com
 ```
 Quando se utiliza a ideia de configurar uma nova instância do arquivo, uma tag é inserida: includeIf. Com ela, precisam ser passados o caminho para a pasta onde será aplicada as configurações e para o segundo arquivo, este sendo passado na variável path 
-```Java
+```bash
 [user]
 	name = teste
 	email = teste@email.com
-[includeIf "gitdir:/path/to/projects/"
+[includeIf "gitdir:/path/to/projects/"]
     path = path/to/config-file/.gitconfig-teste
 ```
 Com isso, todas as configurações inseridas no novo arquivo serão automaticamente carregadas assim que utilizar os comandos git na pasta especificada 
 ## 6 - COMANDOS ÚTEIS
 
 * Troca de usuário global do git de forma simplificada usando alias
-```Java
+```bash
 git config --global alias.trocar "!git config --global user.name teste & git config --global user.email exemplo@gmail.com"
 ```
 Depois basta usar o comando abaixo para trocar de usuário:
-```Java
+```bash
 git trocar
 ```
 
