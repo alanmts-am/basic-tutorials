@@ -171,6 +171,7 @@ ssh-keygen -t rsa -b 4096 -C "exemplo@gmail.com"
 * A mesma deve ser gerada dentro da pasta: 
 ```Java
 "C:\\Users\\SEU_USUARIO\\.ssh" (Windows)
+"/home/SEU_USUARIO/.ssh" (Linux)
 ```
 <span style="color:red">OBS</span>:
 Mais a frente veremos uma forma de personalizar o nome e pasta das chaves, evitando problemas.  
@@ -257,7 +258,38 @@ git clone github.ex:username/repository.git
 <span style="color:red">OBS</span>:
 claramente, só podem ser clonados projetos do repositório Github onde a chave foi inserida
 
-## 5 - COMANDOS ÚTEIS
+## 5 - SEPARAÇÃO DO ARQUIVO .GITCONFIG
+Muitas das vezes, queremos separar os dados de usuário do git a depender do projeto que estamos trabalhando. Como exemplo, podemos usar a ideia de projetos para empresa e pessoal.
+
+Existe uma forma de criarmos mais de um arquivo .gitconfig e chama-lo a depender da pasta que estamos utilizando. Para isso, na mesma pasta do arquivo original, criamos um novo, por exemplo, .gitconfig-empresa.
+
+<span style="color:red">OBS</span>:
+o arquivo normalmente se encontra na raiz da pasta do usuário. Ele é criado assim que algum comando de configuração é enviado.
+
+Linux
+```Java
+nano .gitconfig-empresa ou vim .gitconfig-empresa
+```
+Windows (bash do Git)
+```Java
+touch .gitconfig-empresa 
+```
+O arquivo funciona com um sistema de tags e variáveis. No exemplo abaixo, temos um com a tag user e suas variáveis name e email
+```Java
+[user]
+	name = teste
+	email = teste@email.com
+```
+Quando se utiliza a ideia de configurar uma nova instância do arquivo, uma tag é inserida: includeIf. Com ela, precisam ser passados o caminho para a pasta onde será aplicada as configurações e para o segundo arquivo, este sendo passado na variável path 
+```Java
+[user]
+	name = teste
+	email = teste@email.com
+[includeIf "gitdir:/path/to/projects/"
+    path = path/to/config-file/.gitconfig-teste
+```
+Com isso, todas as configurações inseridas no novo arquivo serão automaticamente carregadas assim que utilizar os comandos git na pasta especificada 
+## 6 - COMANDOS ÚTEIS
 
 * Troca de usuário global do git de forma simplificada usando alias
 ```Java
