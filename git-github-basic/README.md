@@ -4,6 +4,14 @@ Inicio do README
 
 # COMO FUNCIONA A INCIALIZAÇÃO DO GIT/GITHUB
 
+## ALGUMAS IDEIAS SOBRE O GIT
+* Enquanto outro sistemas trabalham com as diferenças entre os arquivos, o Git trabalha com os estados deles (snapshots)
+* Estados dos arquivos dentro do git
+  - Untracked (arquivo novo desconhecido)
+  - Unmodified (arquivo sem modificações)
+  - Modified (arquivo já conhecido mas modificado)
+  - Staged (arquivo já conhecido, modificado e salvo para ser comitado)
+
 ## 1 - PROJETOS INICIADOS NA MAQUINA
 * Se faz necessário a criação do repositório no git do projeto. Os casos de repositórios clonados, o git já é iniciado automaticamente  
 ```bash
@@ -100,6 +108,26 @@ git config --global --unset alias.teste
 ```bash
 git config --global alias.teste "!git status & git log"
 ```
+<!----->
+Agora vamos ver alguns comandos úteis para desfazer modificações dentro do sistema
+* Desfazer uma mudança sem ter enviado para o staged
+```bash
+git checkout "arquivo"
+```
+* Desfazer um commit e manter na área de staged
+```bash
+git reset --soft "hash do commit anterior"
+```
+* Desfazer um commit e manter na área de modified
+```bash
+git reset --mixed "hash do commit anterior"
+```
+* Desfazer um commit e apagar as alterações
+```bash
+git reset --hard "hash do commit anterior"
+```
+<span style="color:red">OBS</span>: a hash do commit anterior se tornará a HEAD da branch em questão  
+<span style="color:red">OBS2</span>: este comando é interessante quando analisando com commits em ambiente local, sem ainda ter sido enviado para o remoto
 
 ## 2 - PROJETOS EM NUVEM (GITHUB)
 
