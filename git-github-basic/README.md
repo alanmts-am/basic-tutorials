@@ -63,6 +63,12 @@ git commit -m "Adição do readme.md"
 git log
 ```
 <!----->
+<!----->
+* Para verificar todos os commits pelas branchs, em forma de gráfico
+```bash
+git log --graph
+```
+<!----->
 * Verificar as branchs atuais do sistema
 ```bash
 git branch
@@ -107,6 +113,21 @@ git config --global --unset alias.teste
 * Reunindo os dois últimos conceitos, usando um alias para dois comandos
 ```bash
 git config --global alias.teste "!git status & git log"
+```
+<!----->
+Vamos verificar a ideia de comandos de merge e rebase
+
+Ambos os comandos indicam união de branchs mas tem uma diferença:  
+
+**Merge** - trabalha com a ideia de unir branchs através de um commit final. Neste temos a manutenção do históricos de commits no árvore.  
+
+**Rebase** - utiliza da mesma ideia mas não cria um novo commit mas sim adiciona todos eles a frente do último. Este não permite ver a lógica de árvore nas branchs.
+
+* Comando merge ou rebase de uma branch criada para a sua atual
+```bash
+git merge "branch que deseja unir a atual"
+
+git rebase "branch que deseja unir a atual"
 ```
 <!----->
 Agora vamos ver alguns comandos úteis para desfazer modificações dentro do sistema
